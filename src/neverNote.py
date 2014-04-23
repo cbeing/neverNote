@@ -39,4 +39,18 @@ def CaptureNote(aNotePageNumber):
   return fname
 
 
+# aListOfCapturedNotes is the notes file names saved from CaptureNote
+# aSize is the size of the original PDF, it's format is : (width, height)
+def generatePDF(aListOfCapturedNotes, aSize):
+  from reportlab.pdfgen import canvas
+  from reportlab.platypus import Image
 
+  fname = "/tmp/notes.pdf"
+  c = canvas.Canvas(fname, pagesize=aSize)
+
+  for note in aListOfCapturedNotes:
+    c.drawImage(note, 0, 0, aSize[0], aSize[1])
+    c.showPage() # Save and start new page
+  c.save()
+
+  return fname
