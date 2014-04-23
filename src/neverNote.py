@@ -54,3 +54,29 @@ def generatePDF(aListOfCapturedNotes, aSize):
   c.save()
 
   return fname
+
+def addNotesToSlides(aSlidesFname, aNotesFname, aPages):
+  from pyPdf import PdfFileWriter, PdfFileReader
+
+  notesSlides = PdfFileWriter()
+  notes = PdfFileReader(file(aNotesFname, "rb"))
+  slides = PdfFileReader(file(aSlidesFname, "rb"))
+
+  finalNumPages = notes.getNumPages() + slides.getNumPages()
+
+  notesIt = 0
+  slidesIt = 0
+
+  for pageNum in range(finalNumPages):
+    if(notesIt < len(aPages) and pageNum == (aPages[notesIt] - 1)):
+      notesSlides.addPage(notes.getPage(notesIt))
+      notesIt = notesIt + 1
+    else:
+      notesSlides.addPage(slides.getPage(slidesIt))
+      slidesIt = slidesIt + 1
+
+
+  ostream = file("/tmp/slides+notes.pdf", "wb")
+  notesSlides.write(ostream)
+  ostream.close()
+
