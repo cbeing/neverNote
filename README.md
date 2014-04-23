@@ -1,4 +1,4 @@
-NeverNode
+NeverNote
 ====================
 This is an extension to remoteSlideShow, it will capture notes on the whiteboard and insert them into the slides.
 
