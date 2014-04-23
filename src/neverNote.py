@@ -19,11 +19,11 @@
  # DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
  # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-import cv2.cv as cv
 
 
 
 def CaptureNote(aNotePageNumber):
+  import cv2.cv as cv
   fname = "/tmp/nevernoteCap-{0}.jpg".format(aNotePageNumber)
   capture = cv.CaptureFromCAM(0)
   i = 10
@@ -37,4 +37,6 @@ def CaptureNote(aNotePageNumber):
   cv.SaveImage(fname, img)
 
   return fname
+
+
 
