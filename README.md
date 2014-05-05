@@ -5,6 +5,10 @@ This is an extension to remoteSlideShow, it will capture notes on the whiteboard
 
 Install:
 --------
+dependencies : 
+
+You have to install the following packages (debian)
+    sudo apt-get install python-opencv python-pypdf python-reportlab
 
 
 License:
