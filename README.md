@@ -8,6 +8,7 @@ Install:
 dependencies : 
 
 You have to install the following packages (debian)
+
     sudo apt-get install python-opencv python-pypdf python-reportlab
 
 
