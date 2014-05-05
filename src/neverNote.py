@@ -24,13 +24,16 @@
 
 def CaptureNote(aNotePageNumber):
   import cv2.cv as cv
+  import time
+
   fname = "/tmp/nevernoteCap-{0}.jpg".format(aNotePageNumber)
   capture = cv.CaptureFromCAM(0)
   i = 10
   img = None
   while i > 0:
+    print i
     img = cv.QueryFrame(capture)
-    cv.WaitKey(10)
+    time.sleep(0.001)
     i = i - 1
   
   
